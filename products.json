@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "category": "Жидкости",
+    "name": "Berry Ice",
+    "description": "Освежающая ягодная смесь со льдом",
+    "price": 450,
+    "stock": 12,
+    "image": "https://via.placeholder.com/150"
+  }
+]
