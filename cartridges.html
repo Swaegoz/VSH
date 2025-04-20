@@ -5,50 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Картриджи и Испарители</title>
   <style>
-    body {
-      font-family: sans-serif;
-      padding: 20px;
-      background-image: url('background.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      min-height: 100vh;
-      color: white;
-    }
-    .back {
-      margin-bottom: 15px;
-      cursor: pointer;
-      color: #f04c4c;
-    }
+  body {
+    font-family: sans-serif;
+    padding: 20px;
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    color: white;
+  }
+  .back {
+    margin-bottom: 15px;
+    cursor: pointer;
+    color: #f04c4c;
+  }
+
+  /* Новая адаптивная сетка */
+  .product-grid {
+    display: grid;
+    /* Две колонки минимум по 150px, затем автоматически подстраиваются */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    justify-items: center;
+  }
+
+  .card {
+    background: rgba(10, 10, 10, 0.8);
+    color: white;
+    /* Убираем фиксированную ширину */
+    width: 100%;
+    max-width: 180px;     /* максимум, если экран позволяет */
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    font-size: 13px;
+    text-align: center;
+  }
+  .card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  .card h3 {
+    font-size: 14px;
+    margin: 6px 0;
+  }
+  .card p {
+    margin: 4px 0;
+  }
+
+  /* На очень узких экранах (до 360px) — одна колонка */
+  @media (max-width: 360px) {
     .product-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
+      grid-template-columns: 1fr;
     }
-    .card {
-      background: rgba(10, 10, 10, 0.8);
-      color: white;
-      width: 160px;
-      padding: 10px;
-      border-radius: 12px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
-      font-size: 13px;
-      text-align: center;
-    }
-    .card img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 8px;
-    }
-    .card h3 {
-      font-size: 14px;
-      margin: 6px 0;
-    }
-    .card p {
-      margin: 4px 0;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
   <div class="back" onclick="goBack()">⬅️ Назад</div>
