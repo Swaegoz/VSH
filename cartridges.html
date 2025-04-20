@@ -1,74 +1,74 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartridges</title>
-    
-    <style>
-        body {
-            font-family: sans-serif;
-            padding: 20px;
-            background-image: url('background.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 100vh;
-            color: white;
-        }
-        .back {
-            margin-bottom: 15px;
-            cursor: pointer;
-            color: #f04c4c;
-        }
-        .product-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-        }
-        .card {
-            background: rgba(10, 10, 10, 0.8);
-            color: white;
-            width: 160px;
-            padding: 10px;
-            border-radius: 12px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.4);
-            font-size: 13px;
-            text-align: center;
-        }
-        .card img {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 8px;
-        }
-        .card h3 {
-            font-size: 14px;
-            margin: 6px 0;
-        }
-        .card p {
-            margin: 4px 0;
-        }
-    </style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Картриджи и Испарители</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background-image: url('background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      color: white;
+    }
+    .back {
+      margin-bottom: 15px;
+      cursor: pointer;
+      color: #f04c4c;
+    }
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+    .card {
+      background: rgba(10, 10, 10, 0.8);
+      color: white;
+      width: 160px;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+      font-size: 13px;
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+    .card h3 {
+      font-size: 14px;
+      margin: 6px 0;
+    }
+    .card p {
+      margin: 4px 0;
+    }
+  </style>
 </head>
 <body>
-    
-<div class="back" onclick="goBack()">⬅️ Назад</div>
-<h2>Картриджи и Испарители</h2>
-<div class="product-grid">
+  <div class="back" onclick="goBack()">⬅️ Назад</div>
+  <h2>Картриджи и Испарители</h2>
+  <div class="product-grid">
     <div class="card">
-        <img src="images/vaporesso_xros_06.png" alt="Vaporesso Xros 0.6 Ohm">
-        <h3>Vaporesso Xros 0.6Ω</h3>
-        <p><strong>370 ₽</strong></p>
+      <img src="images/vaporesso_xros_06.png" alt="Vaporesso Xros 0.6 Ohm">
+      <h3>Vaporesso Xros 0.6Ω</h3>
+      <p><strong>370 ₽</strong></p>
     </div>
-</div>
-<script>
+    <div class="card">
+      <img src="images/vaporesso_xros_04.png" alt="Vaporesso Xros 0.4 Ohm">
+      <h3>Vaporesso Xros 0.4Ω</h3>
+      <p><strong>370 ₽</strong></p>
+    </div>
+  </div>
+  <script>
     function goBack() {
-        window.history.back();
+      window.history.back();
     }
-</script>
-
+  </script>
 </body>
 </html>
