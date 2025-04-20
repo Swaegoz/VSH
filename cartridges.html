@@ -25,22 +25,26 @@
   .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  column-gap: 50px;   /* горизонтальный зазор между карточками */
-  row-gap: 30px;      /* вертикальный зазор, если карточек больше чем ряд */
+  gap: 30px;            /* пространство между ячейками */
   justify-items: center;
 }
 
 .card {
-  background: rgba(10,10,10,0.8);
+  background: rgba(10, 10, 10, 0.8);
   color: white;
   width: 100%;
   max-width: 180px;
-  padding: 15px;      /* чуть больше внутреннего отступа */
-  margin: 0;          /* обнулить внешние, всё равно управляем через grid-gap */
+  padding: 12px;        /* чуть больше «воздуха» внутри */
   border-radius: 12px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.4);
   font-size: 13px;
   text-align: center;
+
+  /* Добавляем обводку, чтобы карточки всегда были видно отдельно */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  /* И дополнительный внешний отступ на случай, если gap не срабатывает */
+  margin: 5px;
 }
   .card img {
     width: 100%;
