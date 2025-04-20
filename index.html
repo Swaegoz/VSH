@@ -15,9 +15,22 @@
     color: white;
   }
         body { font-family: sans-serif; padding: 15px; background-color: #f7f8fa; }
-        .section { padding: 12px 20px; margin: 10px auto; background: white; box-shadow: 0 3px 6px rgba(0,0,0,0.1); border-radius: 8px; cursor: pointer; font-size: 17px; transition: all 0.2s ease; max-width: 400px; }
-        .section:hover { background-color: #f0f4ff; }
-        h2 { text-align: center; }
+         .section {
+    padding: 12px 20px;
+    margin: 10px auto;
+    background: rgba(0, 0, 0, 0.6); /* тёмный с прозрачностью */
+    color: white;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 17px;
+    transition: all 0.2s ease;
+    max-width: 400px;
+  }
+
+  .section:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
     </style>
 </head>
 <body>
