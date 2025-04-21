@@ -2,9 +2,16 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ассортимент</title>
 
+  <!-- 1. Подключаем Google Font Rubik -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- 2. Скрипт для акцентного цвета из Telegram -->
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const tg = window.Telegram.WebApp;
@@ -14,8 +21,9 @@
   </script>
 
   <style>
+    /* 3. Применяем шрифт Rubik ко всему документу */
     body {
-      font-family: sans-serif;
+      font-family: 'Rubik', sans-serif;
       padding: 15px;
       margin: 0;
       background-image: url('background.png');
@@ -25,12 +33,17 @@
       min-height: 100vh;
       color: rgba(255,255,255,0.9);
     }
+
+    /* Заголовок */
     h2 {
       text-align: center;
       margin-bottom: 20px;
       color: rgba(255,255,255,0.9);
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
 
+    /* Кнопки‑разделы */
     .section {
       display: flex;
       align-items: center;
@@ -41,38 +54,55 @@
       background-color: rgba(0, 0, 0, 0.5);
       color: rgba(255,255,255,0.85);
       font-size: 17px;
-      font-weight: 600;
+      font-weight: 500;
       border-radius: 30px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
       text-decoration: none;
       text-align: center;
-      border: 2px solid transparent; /* граница по умолчанию */
+      border: 2px solid transparent;
     }
+
     .section:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.35);
       background-color: rgba(0, 0, 0, 0.6);
       color: rgba(255,255,255,1);
-      border-color: #ff4c4c; /* красная обводка при наведении */
+      border-color: #ff4c4c;
     }
   </style>
 </head>
+
 <body>
   <!-- Логотип в левом верхнем углу -->
   <div style="position: absolute; top: 15px; left: 15px;">
     <img src="images/logo.png" alt="Логотип" style="width: 60px; height: auto;" />
   </div>
-  <h2> Каталог продукции</h2>
 
-  <div class="section" onclick="openSection('cartridges.html')">Картриджи и Испарители</div>
-  <div class="section" onclick="openSection('liquids.html')">Жидкости</div>
-  <div class="section" onclick="openSection('pod_systems.html')">POD-Системы</div>
-  <div class="section" onclick="openSection('disposables.html')">Одноразовые испарители</div>
-  <div class="section" onclick="openSection('chewing_tobacco.html')">Жевательный табак</div>
-  <div class="section" onclick="openSection('hookah.html')">Кальянная продукция</div>
-  <div class="section" onclick="openSection('snuff_tobacco.html')">Нюхательный табак</div>
+  <h2>Каталог продукции</h2>
+
+  <div class="section" onclick="openSection('cartridges.html')">
+    Картриджи и Испарители
+  </div>
+  <div class="section" onclick="openSection('liquids.html')">
+    Жидкости
+  </div>
+  <div class="section" onclick="openSection('pod_systems.html')">
+    POD‑Системы
+  </div>
+  <div class="section" onclick="openSection('disposables.html')">
+    Одноразовые испарители
+  </div>
+  <div class="section" onclick="openSection('chewing_tobacco.html')">
+    Жевательный табак
+  </div>
+  <div class="section" onclick="openSection('hookah.html')">
+    Кальянная продукция
+  </div>
+  <div class="section" onclick="openSection('snuff_tobacco.html')">
+    Нюхательный табак
+  </div>
 
   <script>
     function openSection(page) {
