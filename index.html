@@ -23,11 +23,12 @@
       background-position: center;
       background-repeat: no-repeat;
       min-height: 100vh;
-      color: white;
+      color: rgba(255,255,255,0.9);
     }
     h2 {
       text-align: center;
       margin-bottom: 20px;
+      color: rgba(255,255,255,0.9);
     }
 
     .section {
@@ -37,10 +38,8 @@
       max-width: 400px;
       margin: 10px auto;
       padding: 15px 20px;
-      /* Сделаем фон темным и непрозрачным */
-      background-color: rgba(0, 0, 0, 0.7);
-      /* Оставляем текст белым и без фильтров */
-      color: white;
+      background-color: rgba(0, 0, 0, 0.5); /* чуть светлее */
+      color: rgba(255,255,255,0.85); /* менее яркий текст */
       font-size: 17px;
       font-weight: 600;
       border-radius: 30px;
@@ -53,6 +52,8 @@
     .section:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+      background-color: rgba(0, 0, 0, 0.6);
+      color: rgba(255,255,255,1);
     }
   </style>
 </head>
