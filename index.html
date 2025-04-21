@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ассортимент</title>
+<script>
+  const tg = window.Telegram.WebApp;
+  const accent = tg.themeParams.accent_color || '#3c76ff';
+  document.documentElement.style.setProperty('--accent', accent);
+</script>
     <style>
  body {
     background-image: url('background.png');
@@ -16,13 +21,8 @@
   }
         body { font-family: sans-serif; padding: 15px; background-color: #f7f8fa; }
          .section {
-  padding: 14px 18px;
-  margin: 12px auto;
-  border: 2px solid rgba(255,255,255,0.6);
-  background: rgba(0,0,0,0.4);
-  color: white;
-  border-radius: 20px;
-  transition: background 0.2s, border 0.2s;
+  background: var(--accent);
+  /* ...остальные стили... */
 }
 .section:hover {
   background: rgba(255,255,255,0.1);
