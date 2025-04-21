@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ассортимент</title>
 
-  <!-- Динамический цвет акцента из Telegram -->
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const tg = window.Telegram.WebApp;
@@ -15,7 +14,6 @@
   </script>
 
   <style>
-    /* Фон страницы */
     body {
       font-family: sans-serif;
       padding: 15px;
@@ -32,7 +30,6 @@
       margin-bottom: 20px;
     }
 
-    /* Стили кнопок-разделов */
     .section {
       display: flex;
       align-items: center;
@@ -40,22 +37,22 @@
       max-width: 400px;
       margin: 10px auto;
       padding: 15px 20px;
-      background: var(--accent);
+      /* Сделаем фон темным и непрозрачным */
+      background-color: rgba(0, 0, 0, 0.7);
+      /* Оставляем текст белым и без фильтров */
       color: white;
       font-size: 17px;
       font-weight: 600;
       border-radius: 30px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       text-decoration: none;
       text-align: center;
-      filter: brightness(0.6); /* более тёмные блоки */
     }
     .section:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-      filter: brightness(1); /* нормальная яркость при наведении */
     }
   </style>
 </head>
