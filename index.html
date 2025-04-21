@@ -1,34 +1,101 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ассортимент</title> 
-    <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ассортимент</title>
+
+  <!-- Динамический цвет акцента из Telegram -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const tg = window.Telegram.WebApp;
+      const accent = tg.themeParams.accent_color || '#3c76ff';
+      document.documentElement.style.setProperty('--accent', accent);
+    });
+  </script>
+
+  <style>
+    /* Фон страницы */
+    body {
+      font-family: sans-serif;
+      padding: 15px;
+      margin: 0;
+      background-image: url('background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      color: white;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Стили кнопок-разделов */
     .section {
-  padding: 14px 18px;
-  margin: 12px auto;
-  border: 2px solid rgba(255,255,255,0.6);
-  background: rgba(0,0,0,0.4);
-  color: white;
-  border-radius: 20px;
-  transition: background 0.2s, border 0.2s;
-}
-.section:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: var(--accent, #ff4c4c);
-}
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: 400px;
+      margin: 10px auto;
+      padding: 15px 20px;
+      background: var(--accent);
+      color: white;
+      font-size: 17px;
+      font-weight: 600;
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+    }
+    .section:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    }
+    .section .icon {
+      font-size: 24px;
+      line-height: 1;
+    }
   </style>
 </head>
 <body>
-    <h2>🛍️ Каталог продукции</h2>
-   <div class="section" onclick="openSection('cartridges.html')">Картриджи и Испарители</div>
-    <div class="section" onclick="openSection('liquids.html')"> Жидкости</div>
-    <div class="section" onclick="openSection('pod_systems.html')"> POD-Системы</div>
-    <div class="section" onclick="openSection('disposables.html')"> Одноразовые испарители</div>
-    <div class="section" onclick="openSection('chewing_tobacco.html')"> Жевательный табак</div>
-    <div class="section" onclick="openSection('hookah.html')"> Кальянная продукция</div>
-    <div class="section" onclick="openSection('snuff_tobacco.html')"> Нюхательный табак</div>
-    <script>function openSection(page){ window.location.href = page; }</script>
+  <h2>🛍️ Каталог продукции</h2>
+
+  <div class="section" onclick="openSection('cartridges.html')">
+    <span class="icon">💨</span>
+    <span class="label">Картриджи и Испарители</span>
+  </div>
+  <div class="section" onclick="openSection('liquids.html')">
+    <span class="icon">💧</span>
+    <span class="label">Жидкости</span>
+  </div>
+  <div class="section" onclick="openSection('pod_systems.html')">
+    <span class="icon">🔋</span>
+    <span class="label">POD-Системы</span>
+  </div>
+  <div class="section" onclick="openSection('disposables.html')">
+    <span class="icon">🚭</span>
+    <span class="label">Одноразовые испарители</span>
+  </div>
+  <div class="section" onclick="openSection('chewing_tobacco.html')">
+    <span class="icon">🍬</span>
+    <span class="label">Жевательный табак</span>
+  </div>
+  <div class="section" onclick="openSection('hookah.html')">
+    <span class="icon">💨🛥️</span>
+    <span class="label">Кальянная продукция</span>
+  </div>
+  <div class="section" onclick="openSection('snuff_tobacco.html')">
+    <span class="icon">🌿</span>
+    <span class="label">Нюхательный табак</span>
+  </div>
+
+  <script>
+    function openSection(page) {
+      window.location.href = page;
+    }
+  </script>
 </body>
 </html>
