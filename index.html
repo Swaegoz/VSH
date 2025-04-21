@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ассортимент</title>
 
@@ -36,7 +36,7 @@
     .section {
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
       max-width: 400px;
       margin: 10px auto;
       padding: 15px 20px;
@@ -47,50 +47,28 @@
       border-radius: 30px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
       text-decoration: none;
+      text-align: center;
+      filter: brightness(0.8);
     }
     .section:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-    }
-    .section .icon {
-      font-size: 24px;
-      line-height: 1;
+      filter: brightness(1);
     }
   </style>
 </head>
 <body>
   <h2>🛍️ Каталог продукции</h2>
 
-  <div class="section" onclick="openSection('cartridges.html')">
-    <span class="icon">💨</span>
-    <span class="label">Картриджи и Испарители</span>
-  </div>
-  <div class="section" onclick="openSection('liquids.html')">
-    <span class="icon">💧</span>
-    <span class="label">Жидкости</span>
-  </div>
-  <div class="section" onclick="openSection('pod_systems.html')">
-    <span class="icon">🔋</span>
-    <span class="label">POD-Системы</span>
-  </div>
-  <div class="section" onclick="openSection('disposables.html')">
-    <span class="icon">🚭</span>
-    <span class="label">Одноразовые испарители</span>
-  </div>
-  <div class="section" onclick="openSection('chewing_tobacco.html')">
-    <span class="icon">🍬</span>
-    <span class="label">Жевательный табак</span>
-  </div>
-  <div class="section" onclick="openSection('hookah.html')">
-    <span class="icon">💨🛥️</span>
-    <span class="label">Кальянная продукция</span>
-  </div>
-  <div class="section" onclick="openSection('snuff_tobacco.html')">
-    <span class="icon">🌿</span>
-    <span class="label">Нюхательный табак</span>
-  </div>
+  <div class="section" onclick="openSection('cartridges.html')">Картриджи и Испарители</div>
+  <div class="section" onclick="openSection('liquids.html')">Жидкости</div>
+  <div class="section" onclick="openSection('pod_systems.html')">POD-Системы</div>
+  <div class="section" onclick="openSection('disposables.html')">Одноразовые испарители</div>
+  <div class="section" onclick="openSection('chewing_tobacco.html')">Жевательный табак</div>
+  <div class="section" onclick="openSection('hookah.html')">Кальянная продукция</div>
+  <div class="section" onclick="openSection('snuff_tobacco.html')">Нюхательный табак</div>
 
   <script>
     function openSection(page) {
