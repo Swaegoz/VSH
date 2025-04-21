@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ассортимент</title>
+  <title>Каталог продукции</title>
 
-  <!-- 1. Подключаем Google Font Rubik -->
+  <!-- Подключаем Google Font Rubik -->
   <link
     href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
 
-  <!-- 2. Скрипт для акцентного цвета из Telegram -->
+  <!-- Динамический цвет акцента из Telegram WebApp -->
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const tg = window.Telegram.WebApp;
@@ -21,10 +21,10 @@
   </script>
 
   <style>
-    /* 3. Применяем шрифт Rubik ко всему документу */
+    /* Базовые стили и фон */
     body {
       font-family: 'Rubik', sans-serif;
-      padding: 15px;
+      padding: 60px 15px 15px; /* “опускаем” контент вниз */
       margin: 0;
       background-image: url('background.png');
       background-size: cover;
@@ -32,18 +32,28 @@
       background-repeat: no-repeat;
       min-height: 100vh;
       color: rgba(255,255,255,0.9);
+      position: relative;
     }
 
-    /* Заголовок */
     h2 {
       text-align: center;
-      margin-bottom: 20px;
-      color: rgba(255,255,255,0.9);
+      margin: 0 0 30px;
       font-weight: 600;
       letter-spacing: 0.5px;
     }
 
-    /* Кнопки‑разделы */
+    /* Логотип в углу */
+    .app-logo {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      width: 60px;
+      height: auto;
+      z-index: 10;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    }
+
+    /* Стили разделов (кнопок) */
     .section {
       display: flex;
       align-items: center;
@@ -51,14 +61,17 @@
       max-width: 400px;
       margin: 10px auto;
       padding: 15px 20px;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.5); /* тёмный, но чуть прозрачный */
       color: rgba(255,255,255,0.85);
       font-size: 17px;
       font-weight: 500;
       border-radius: 30px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      transition: transform 0.2s ease,
+                  box-shadow 0.2s ease,
+                  border-color 0.2s ease,
+                  background-color 0.2s ease;
       text-decoration: none;
       text-align: center;
       border: 2px solid transparent;
@@ -69,16 +82,14 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.35);
       background-color: rgba(0, 0, 0, 0.6);
       color: rgba(255,255,255,1);
-      border-color: #ff4c4c;
+      border-color: #ff4c4c; /* красная обводка */
     }
   </style>
 </head>
 
 <body>
-  <!-- Логотип в левом верхнем углу -->
-  <div style="position: absolute; top: 15px; left: 15px;">
-    <img src="images/logo.png" alt="Логотип" style="width: 60px; height: auto;" />
-  </div>
+  <!-- Логотип -->
+  <img src="images/logo.png" alt="Логотип" class="app-logo" />
 
   <h2>Каталог продукции</h2>
 
