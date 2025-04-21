@@ -16,21 +16,18 @@
   }
         body { font-family: sans-serif; padding: 15px; background-color: #f7f8fa; }
          .section {
-    padding: 12px 20px;
-    margin: 10px auto;
-    background: rgba(0, 0, 0, 0.6); /* тёмный с прозрачностью */
-    color: white;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 17px;
-    transition: all 0.2s ease;
-    max-width: 400px;
-  }
-
-  .section:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
+  padding: 14px 18px;
+  margin: 12px auto;
+  border: 2px solid rgba(255,255,255,0.6);
+  background: rgba(0,0,0,0.4);
+  color: white;
+  border-radius: 20px;
+  transition: background 0.2s, border 0.2s;
+}
+.section:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: var(--accent, #ff4c4c);
+}
     </style>
 </head>
 <body>
