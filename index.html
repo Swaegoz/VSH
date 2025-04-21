@@ -56,10 +56,19 @@
       background-color: rgba(0, 0, 0, 0.6);
       color: rgba(255,255,255,1);
       border-color: #ff4c4c; /* красная обводка при наведении */
+      app-logo {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      width: 50px;        /* подкорректируйте размер по своему вкусу */
+      height: auto;
+      z-index: 10;        /* чтобы лого всегда было поверх фоновых элементов */
+   }
     }
   </style>
 </head>
 <body>
+  <img src="images/logo.png" alt="Логотип" class="app-logo">
   <h2>🛍️ Каталог продукции</h2>
 
   <div class="section" onclick="openSection('cartridges.html')">Картриджи и Испарители</div>
