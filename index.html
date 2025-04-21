@@ -3,36 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ассортимент</title>
-<script>
-  const tg = window.Telegram.WebApp;
-  const accent = tg.themeParams.accent_color || '#3c76ff';
-  document.documentElement.style.setProperty('--accent', accent);
-</script>
+    <title>Ассортимент</title> 
     <style>
- body {
-    background-image: url('background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    font-family: sans-serif;
-    color: white;
-  }
-        body { font-family: sans-serif; padding: 15px; background-color: #f7f8fa; }
-         .section {
-  background: var(--accent);
-  /* ...остальные стили... */
-}
-.section:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: var(--accent, #ff4c4c);
-}
-    </style>
+    .section {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      max-width: 400px;
+      margin: 10px auto;
+      padding: 15px 20px;
+      background: linear-gradient(135deg, #3c76ff 0%, #ff4c4c 100%);
+      color: white;
+      font-size: 17px;
+      font-weight: 600;
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .section:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    }
+    .section .icon {
+      font-size: 24px;
+    }
+  </style>
 </head>
 <body>
     <h2>🛍️ Каталог продукции</h2>
-    <div class="section" onclick="openSection('cartridges.html')"> Картриджи и Испарители</div>
+   <div class="section" onclick="openSection('cartridges.html')">
+  <span class="icon">💨</span>
+  <span class="label">Картриджи и Испарители</span>
+</div>
     <div class="section" onclick="openSection('liquids.html')"> Жидкости</div>
     <div class="section" onclick="openSection('pod_systems.html')"> POD-Системы</div>
     <div class="section" onclick="openSection('disposables.html')"> Одноразовые испарители</div>
