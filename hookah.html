@@ -21,7 +21,6 @@
   </script>
 
   <style>
-    /* Фон через ::before */
     body {
       position: relative;
       padding: 60px 15px 15px;
@@ -40,7 +39,6 @@
       z-index: -1;
     }
 
-    /* Логотип */
     .app-logo {
       position: absolute;
       top: 15px;
@@ -51,7 +49,6 @@
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
     }
 
-    /* Кнопка Назад */
     .back {
       display: inline-flex;
       align-items: center;
@@ -79,14 +76,12 @@
       transform: translateY(-1px);
     }
 
-    /* Заголовок */
     h2 {
       text-align: center;
       margin: 0 0 30px;
       font-weight: 600;
     }
 
-    /* Сетка карточек – ровно 2 в ряд */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(140px, 1fr));
@@ -96,7 +91,6 @@
       box-sizing: border-box;
     }
 
-    /* Карточки */
     .card {
       background: rgba(30,30,30,0.7);
       border: 1px solid rgba(255,255,255,0.3);
@@ -134,6 +128,14 @@
     #modal.open {
       display: flex;
     }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 28px;
+      color: #fff;
+      cursor: pointer;
+    }
     .modal-content {
       background: rgba(20,20,20,0.9);
       padding: 20px;
@@ -155,38 +157,100 @@
     .modal-content p {
       margin: 5px 0;
     }
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 28px;
-      color: #fff;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
-  <!-- Логотип и кнопка Назад -->
+  <!-- Логотип и Назад -->
   <img src="images/logo.png" alt="Логотип" class="app-logo"/>
   <button class="back" onclick="goBack()">⬅️ Назад</button>
 
   <h2>Кальянная продукция</h2>
 
   <div class="product-grid">
-    <!-- Повторяем для всех товаров, добавляем data-desc и data-price если нужно -->
-    <div class="card"
-         data-desc="Качественный турецкий кальян 70 см"
-         data-price="4500 ₽">
+    <div class="card" data-desc="" data-price="">
       <img src="images/hookah/hookah_01.jpg" alt="Кальян Aura Gear"/>
       <h3>Кальян Aura Gear</h3>
     </div>
-    <div class="card"
-         data-desc=""
-         data-price="">
-      <img src="images/hookah/hookah_02.png" alt="Кальян UNION Sleek СТАНДАРТ"/>
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_02.png" alt="Кальян UNION Sleek СТАНДАРТ"/>
       <h3>Кальян UNION Sleek СТАНДАРТ</h3>
     </div>
-    <!-- …вставьте остальные карточки аналогично… -->
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_03.jpg" alt="Кальян Alpha Hookah X"/>
+      <h3>Кальян Alpha Hookah X</h3>
+    </div>
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_04.jpg" alt="Кальян HOOB - Go On Royal Purple"/>
+      <h3>Кальян HOOB - Go On Royal Purple</h3>
+    </div>
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_05.jpg" alt="Кальян RНа грани модель 4"/>
+      <h3>Кальян RНа грани модель 4</h3>
+    </div>
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_06.jpg" alt="Кальян На грани модель 3"/>
+      <h3>Кальян На грани модель 3</h3>
+    </div>
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_07.jpg" alt="Кальян Alpha Hookah Beat Splash"/>
+      <h3>Кальян Alpha Hookah Beat Splash</h3>
+    </div>
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_08.jpg" alt="Кальян Nanosmoke Box Acid"/>
+      <h3>Кальян Nanosmoke Box Acid</h3>
+    </div>
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_09.jpg" alt="Кальян Misha - Rebel (BOX)"/>
+      <h3>Кальян Misha - Rebel (BOX)</h3>
+    </div>
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_10.jpg" alt="Кальян Мamay Coilovers Mini"/>
+      <h3>Кальян Мamay Coilovers Mini</h3>
+    </div>
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_11.jpg" alt="Кальян Level Amely"/>
+      <h3>Кальян Level Amely</h3>
+    </div>
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_12.jpg" alt="Кальян Vortex Hookah Hurricane"/>
+      <h3>Кальян Vortex Hookah Hurricane</h3>
+    </div>
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_13.jpg" alt="Кальян Alpha Hookah Beat"/>
+      <h3>Кальян Alpha Hookah Beat</h3>
+    </div>
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_14.jpg" alt="Кальян На грани модель 1"/>
+      <h3>Кальян На грани модель 1</h3>
+    </div>
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_15.jpg" alt="Кальян На грани модель 5"/>
+      <h3>Кальян На грани модель 5</h3>
+    </div>
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_16.jpg" alt="Кальян Alpha Hookah x Reverse"/>
+      <h3>Кальян Alpha Hookah x Reverse</h3>
+    </div>
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_17.jpg" alt="Кальян Y.K.A.P Eco E2"/>
+      <h3>Кальян Y.K.A.P Eco E2</h3>
+    </div>
+    <div class="card" data-desc="" data-price="">      
+      <img src="images/hookah/hookah_18.jpg" alt="Кальян Механика STM-A Custom"/>
+      <h3>Кальян Механика STM-A Custom</h3>
+    </div>
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_19.jpg" alt="Кальян Nanosmoke Cube"/>
+      <h3>Кальян Nanosmoke Cube</h3>
+    </div>
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_20.jpg" alt="Кальян Alpha Hookah Smart"/>
+      <h3>Кальян Alpha Hookah Smart</h3>
+    </div>
+    <div class="card" data-desc="" data-price="">
+      <img src="images/hookah/hookah_21.jpg" alt="Кальян Pizduk"/>
+      <h3>Кальян Pizduk</h3>
+    </div>
   </div>
 
   <!-- Модальное окно -->
@@ -201,26 +265,18 @@
   </div>
 
   <script>
-    // Функция Назад
     function goBack() {
       window.history.back();
     }
-
-    // Открытие модалки по клику на карточку
     document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => {
-        const imgSrc  = card.querySelector('img').src;
-        const title   = card.querySelector('h3').innerText;
-        const desc    = card.dataset.desc  || '';
-        const price   = card.dataset.price || '';
-        document.getElementById('modal-img').src    = imgSrc;
-        document.getElementById('modal-title').innerText = title;
-        document.getElementById('modal-desc').innerText  = desc;
-        document.getElementById('modal-price').innerText = price;
+        document.getElementById('modal-img').src    = card.querySelector('img').src;
+        document.getElementById('modal-title').innerText = card.querySelector('h3').innerText;
+        document.getElementById('modal-desc').innerText  = card.dataset.desc || '';
+        document.getElementById('modal-price').innerText = card.dataset.price || '';
         document.getElementById('modal').classList.add('open');
       });
     });
-
     function closeModal() {
       document.getElementById('modal').classList.remove('open');
     }
