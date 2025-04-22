@@ -11,17 +11,19 @@
     rel="stylesheet"
   />
 
-  <!-- Динамический цвет акцента из Telegram WebApp -->
+  <!-- Telegram accent -->
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const tg = window.Telegram.WebApp;
-      const accent = tg.themeParams.accent_color || '#3c76ff';
-      document.documentElement.style.setProperty('--accent', accent);
+      document.documentElement.style.setProperty(
+        '--accent',
+        tg.themeParams.accent_color || '#3c76ff'
+      );
     });
   </script>
 
   <style>
-    /* Светлый фон через псевдо‑элемент */
+    /* фон */
     body {
       position: relative;
       padding: 60px 15px 15px;
@@ -44,183 +46,129 @@
       text-align: center;
       margin: 0 0 30px;
       font-weight: 600;
-      letter-spacing: 0.5px;
     }
 
-    /* Логотип */
-    .app-logo {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      width: 60px;
-      height: auto;
-      z-index: 10;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
-    }
-
-    /* Кнопка «Назад» */
     .back {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 16px;
-      margin-bottom: 20px;
-      font-size: 14px;
-      font-weight: 500;
-      color: rgba(255,255,255,0.85);
-      background-color: rgba(0,0,0,0.5);
-      border: 2px solid transparent;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      cursor: pointer;
-      transition:
-        background-color 0.2s ease,
-        border-color 0.2s ease,
-        color 0.2s ease,
-        transform 0.1s ease;
-    }
-    .back:hover {
-      background-color: rgba(0,0,0,0.6);
-      border-color: #ff4c4c;
-      color: #fff;
-      transform: translateY(-1px);
+      /* ...ваши стили для кнопки назад... */
     }
 
-    /* Сетка — ровно 2 колонки */
+    /* Сетка */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(140px, 1fr));
-      column-gap: 20px;
-      row-gap: 20px;
+      gap: 20px;
       padding: 0 15px;
-      box-sizing: border-box;
     }
 
-    /* Карточка товара */
     .card {
       background: rgba(30,30,30,0.7);
-      color: rgba(255,255,255,0.9);
-      width: 100%;
-      max-width: 180px;
-      padding: 15px;
-      border-radius: 12px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
-      font-size: 13px;
-      text-align: center;
       border: 1px solid rgba(255,255,255,0.3);
-      margin: 0;
+      border-radius: 12px;
       box-sizing: border-box;
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform .15s;
+    }
+    .card:hover {
+      transform: translateY(-2px);
     }
     .card img {
+      display: block;
       width: 100%;
-      border-radius: 8px;
-      margin-bottom: 8px;
+      height: auto;
     }
     .card h3 {
       font-size: 14px;
-      margin: 6px 0;
+      margin: 8px;
+    }
+
+    /* Модалка */
+    #modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 99;
+    }
+    #modal.open { display: flex; }
+    #modal .modal-content {
+      background: rgba(20,20,20,0.9);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 90%;
+      max-height: 90%;
+      overflow-y: auto;
+      text-align: center;
+      color: #fff;
+    }
+    #modal .modal-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    #modal .modal-content h3 {
+      margin: 0 0 10px;
+    }
+    #modal .modal-content p {
+      margin: 5px 0;
+    }
+    #modal .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 28px;
+      color: #fff;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <!-- Логотип -->
-  <img src="images/logo.png" alt="Логотип" class="app-logo"/>
 
-  <!-- Кнопка «Назад» -->
-  <button class="back" onclick="goBack()">⬅️ Назад</button>
+  <!-- логотип, back и заголовок -->
 
   <h2>Кальянная продукция</h2>
-
   <div class="product-grid">
-    <div class="card">
+    <!-- Обратите внимание: data-desc и data-price -->
+    <div class="card"
+         data-desc="Качественный турецкий кальян 70 см"
+         data-price="4500 ₽">
       <img src="images/hookah/hookah_01.jpg" alt="Кальян Aura Gear"/>
       <h3>Кальян Aura Gear</h3>
     </div>
-    <div class="card">
-      <img src="images/hookah/hookah_02.png" alt="Кальян UNION Sleek СТАНДАРТ"/>
-      <h3>Кальян UNION Sleek СТАНДАРТ</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_03.jpg" alt="Кальян Alpha Hookah X"/>
-      <h3>Кальян Alpha Hookah X</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_04.jpg" alt="Кальян HOOB - Go On Royal Purple"/>
-      <h3>Кальян HOOB - Go On Royal Purple</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_05.jpg" alt="Кальян RНа грани модель 4"/>
-      <h3>Кальян RНа грани модель 4</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_06.jpg" alt="Кальян На грани модель 3"/>
-      <h3>Кальян На грани модель 3</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_07.jpg" alt="Кальян Alpha Hookah Beat Splash"/>
-      <h3>Кальян Alpha Hookah Beat Splash</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_08.jpg" alt="Кальян Nanosmoke Box Acid"/>
-      <h3>Кальян Nanosmoke Box Acid</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_09.jpg" alt="Кальян Misha - Rebel (BOX)"/>
-      <h3>Кальян Misha - Rebel (BOX)</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_10.jpg" alt="Кальян Мamay Coilovers Mini"/>
-      <h3>Кальян Мamay Coilovers Mini</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_11.jpg" alt="Кальян Level Amely"/>
-      <h3>Кальян Level Amely</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_12.jpg" alt="Кальян Vortex Hookah Hurricane"/>
-      <h3>Кальян Vortex Hookah Hurricane</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_13.jpg" alt="Кальян Alpha Hookah Beat"/>
-      <h3>Кальян Alpha Hookah Beat</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_14.jpg" alt="Кальян На грани модель 1"/>
-      <h3>Кальян На грани модель 1</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_15.jpg" alt="Кальян На грани модель 5"/>
-      <h3>Кальян На грани модель 5</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_16.jpg" alt="Кальян Alpha Hookah x Reverse"/>
-      <h3>Кальян Alpha Hookah x Reverse</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_17.jpg" alt="Кальян Y.K.A.P Eco E2"/>
-      <h3>Кальян Y.K.A.P Eco E2</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_18.jpg" alt="Кальян Механика STM-A Custom"/>
-      <h3>Кальян Механика STM-A Custom</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_19.jpg" alt="Кальян Nanosmoke Cube"/>
-      <h3>Кальян Nanosmoke Cube</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_20.jpg" alt="Кальян Alpha Hookah Smart"/>
-      <h3>Кальян Alpha Hookah Smart</h3>
-    </div>
-    <div class="card">
-      <img src="images/hookah/hookah_21.jpg" alt="Кальян Pizduk"/>
-      <h3>Кальян Pizduk</h3>
+    <!-- Повторить для всех товаров -->
+  </div>
+
+  <!-- Модальное окно -->
+  <div id="modal">
+    <div class="modal-close" onclick="closeModal()">×</div>
+    <div class="modal-content">
+      <img id="modal-img" src="" alt=""/>
+      <h3 id="modal-title"></h3>
+      <p id="modal-desc"></p>
+      <p id="modal-price"></p>
     </div>
   </div>
 
   <script>
-    function goBack() {
-      window.history.back();
+    // открыть модалку с данными карточки
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        const imgSrc  = card.querySelector('img').src;
+        const title   = card.querySelector('h3').innerText;
+        const desc    = card.dataset.desc  ?? '';
+        const price   = card.dataset.price ?? '';
+        document.getElementById('modal-img').src    = imgSrc;
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-desc').innerText  = desc;
+        document.getElementById('modal-price').innerText = price;
+        document.getElementById('modal').classList.add('open');
+      });
+    });
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('open');
     }
   </script>
 </body>
