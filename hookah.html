@@ -103,22 +103,23 @@
       margin: 4px 0;
     }
 /* На телефонах — горизонтальная прокрутка карточек */
-@media (max-width: 480px) {
+/* Сетка по умолчанию */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  column-gap: 30px;
+  row-gap: 30px;
+  justify-items: center;
+  padding: 0 20px;
+}
+
+/* На узких экранах — ровно 2 колонки */
+@media (max-width: 600px) {
   .product-grid {
-    display: flex;            /* переключаемся с grid на flex */
-    flex-wrap: nowrap;        /* не переносим */
-    overflow-x: auto;         /* включаем горизонтальный скролл */
-    padding: 0 15px;          /* отступы по бокам */
-    gap: 20px;                /* расстояние между карточками */
-  }
-  .product-grid::-webkit-scrollbar {
-    display: none;            /* прячем скроллбар в WebKit */
-  }
-  .card {
-    flex: 0 0 auto;           /* предотвращаем сжатие */
-    margin: 0;                /* убираем margin, gap же контролирует расстояние */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
+
   </style>
 </head>
 <body>
