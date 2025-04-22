@@ -11,19 +11,17 @@
     rel="stylesheet"
   />
 
-  <!-- Telegram accent -->
+  <!-- Telegram accent color -->
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const tg = window.Telegram.WebApp;
-      document.documentElement.style.setProperty(
-        '--accent',
-        tg.themeParams.accent_color || '#3c76ff'
-      );
+      const accent = tg.themeParams.accent_color || '#3c76ff';
+      document.documentElement.style.setProperty('--accent', accent);
     });
   </script>
 
   <style>
-    /* фон */
+    /* Фон через ::before */
     body {
       position: relative;
       padding: 60px 15px 15px;
@@ -42,32 +40,73 @@
       z-index: -1;
     }
 
+    /* Логотип */
+    .app-logo {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      width: 60px;
+      height: auto;
+      z-index: 10;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    }
+
+    /* Кнопка Назад */
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      background-color: rgba(0,0,0,0.5);
+      border: 2px solid transparent;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      cursor: pointer;
+      transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.1s ease;
+    }
+    .back:hover {
+      background-color: rgba(0,0,0,0.6);
+      border-color: #ff4c4c;
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    /* Заголовок */
     h2 {
       text-align: center;
       margin: 0 0 30px;
       font-weight: 600;
     }
 
-    .back {
-      /* ...ваши стили для кнопки назад... */
-    }
-
-    /* Сетка */
+    /* Сетка карточек – ровно 2 в ряд */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(140px, 1fr));
-      gap: 20px;
+      column-gap: 20px;
+      row-gap: 20px;
       padding: 0 15px;
+      box-sizing: border-box;
     }
 
+    /* Карточки */
     .card {
       background: rgba(30,30,30,0.7);
       border: 1px solid rgba(255,255,255,0.3);
       border-radius: 12px;
-      box-sizing: border-box;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
       cursor: pointer;
       overflow: hidden;
       transition: transform .15s;
+      margin: 0;
+      box-sizing: border-box;
     }
     .card:hover {
       transform: translateY(-2px);
@@ -82,7 +121,7 @@
       margin: 8px;
     }
 
-    /* Модалка */
+    /* Модальное окно */
     #modal {
       display: none;
       position: fixed;
@@ -92,8 +131,10 @@
       align-items: center;
       z-index: 99;
     }
-    #modal.open { display: flex; }
-    #modal .modal-content {
+    #modal.open {
+      display: flex;
+    }
+    .modal-content {
       background: rgba(20,20,20,0.9);
       padding: 20px;
       border-radius: 10px;
@@ -103,18 +144,18 @@
       text-align: center;
       color: #fff;
     }
-    #modal .modal-content img {
+    .modal-content img {
       max-width: 100%;
       border-radius: 8px;
       margin-bottom: 15px;
     }
-    #modal .modal-content h3 {
+    .modal-content h3 {
       margin: 0 0 10px;
     }
-    #modal .modal-content p {
+    .modal-content p {
       margin: 5px 0;
     }
-    #modal .modal-close {
+    .modal-close {
       position: absolute;
       top: 20px;
       right: 20px;
@@ -125,19 +166,27 @@
   </style>
 </head>
 <body>
-
-  <!-- логотип, back и заголовок -->
+  <!-- Логотип и кнопка Назад -->
+  <img src="images/logo.png" alt="Логотип" class="app-logo"/>
+  <button class="back" onclick="goBack()">⬅️ Назад</button>
 
   <h2>Кальянная продукция</h2>
+
   <div class="product-grid">
-    <!-- Обратите внимание: data-desc и data-price -->
+    <!-- Повторяем для всех товаров, добавляем data-desc и data-price если нужно -->
     <div class="card"
-         data-desc="Качественный турецкий кальян 70 см"
-         data-price="4500 ₽">
+         data-desc="Качественный турецкий кальян 70 см"
+         data-price="4500 ₽">
       <img src="images/hookah/hookah_01.jpg" alt="Кальян Aura Gear"/>
-      <h3>Кальян Aura Gear</h3>
+      <h3>Кальян Aura Gear</h3>
     </div>
-    <!-- Повторить для всех товаров -->
+    <div class="card"
+         data-desc=""
+         data-price="">
+      <img src="images/hookah/hookah_02.png" alt="Кальян UNION Sleek СТАНДАРТ"/>
+      <h3>Кальян UNION Sleek СТАНДАРТ</h3>
+    </div>
+    <!-- …вставьте остальные карточки аналогично… -->
   </div>
 
   <!-- Модальное окно -->
@@ -152,13 +201,18 @@
   </div>
 
   <script>
-    // открыть модалку с данными карточки
+    // Функция Назад
+    function goBack() {
+      window.history.back();
+    }
+
+    // Открытие модалки по клику на карточку
     document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('click', () => {
         const imgSrc  = card.querySelector('img').src;
         const title   = card.querySelector('h3').innerText;
-        const desc    = card.dataset.desc  ?? '';
-        const price   = card.dataset.price ?? '';
+        const desc    = card.dataset.desc  || '';
+        const price   = card.dataset.price || '';
         document.getElementById('modal-img').src    = imgSrc;
         document.getElementById('modal-title').innerText = title;
         document.getElementById('modal-desc').innerText  = desc;
