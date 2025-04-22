@@ -102,6 +102,23 @@
     .card p {
       margin: 4px 0;
     }
+/* На телефонах — горизонтальная прокрутка карточек */
+@media (max-width: 480px) {
+  .product-grid {
+    display: flex;            /* переключаемся с grid на flex */
+    flex-wrap: nowrap;        /* не переносим */
+    overflow-x: auto;         /* включаем горизонтальный скролл */
+    padding: 0 15px;          /* отступы по бокам */
+    gap: 20px;                /* расстояние между карточками */
+  }
+  .product-grid::-webkit-scrollbar {
+    display: none;            /* прячем скроллбар в WebKit */
+  }
+  .card {
+    flex: 0 0 auto;           /* предотвращаем сжатие */
+    margin: 0;                /* убираем margin, gap же контролирует расстояние */
+  }
+}
   </style>
 </head>
 <body>
